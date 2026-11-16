@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mohab El Gendy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Raleway:wght@800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <!-- لازم يتحمل بعد style.css: فيه إصلاح الدارك مود + الستايل الجديد -->
+    <link rel="stylesheet" href="timeline.css" />
+  </head>
+
+  <body>
+    <div class="bg" aria-hidden="true">
+      <span class="bg__blob bg__blob--1"></span>
+      <span class="bg__blob bg__blob--2"></span>
+      <span class="bg__blob bg__blob--3"></span>
+    </div>
+
+    <header class="header">
+      <div class="container header__inner">
+        <nav class="navigation" id="Home">
+          <ul class="navigation__list">
+            <li><a class="navigation__link navigation__Home" href="#Home">Home</a></li>
+            <li><a class="navigation__link navigation__About" href="#about">About</a></li>
+            <li><a class="navigation__link navigation__Skills" href="#skills">Skills</a></li>
+            <li><a class="navigation__link navigation__massage" href="#say_hi">Say hi</a></li>
+          </ul>
+        </nav>
+
+        <div class="toggle">
+          <span class="toggle__title">Switch Theme</span>
+          <input type="checkbox" id="theme-toggle" class="toggle__checkbox" />
+          <label for="theme-toggle" class="toggle__label"></label>
+        </div>
+      </div>
+    </header>
+
+    <!-- HERO: رحلة التعلم -->
+    <section id="about" class="bio">
+      <div class="container bio__inner">
+        <div class="bio__data">
+          <h1 class="bio__heading">From zero to developer in 3 months</h1>
+
+          <p class="bio__objective">
+            I'm <strong>Mohab El Gendy</strong>, a student at
+            <strong>Almadrasa Academy</strong>. I started learning programming
+            in <strong>August 2026</strong> from absolute zero. Below is my
+            journey, project by project, with the date I built each one.
+          </p>
+
+          <ol class="journey">
+            <li class="journey__step"><span class="journey__date">Aug 2026</span> Python basics</li>
+            <li class="journey__step"><span class="journey__date">Oct 2026</span> GUI apps &amp; APIs</li>
+            <li class="journey__step"><span class="journey__date">Nov 2026</span> HTML, CSS &amp; JavaScript</li>
+          </ol>
+
+          <div class="bio__actions">
+            <a href="#skills" class="say_hi">See my journey</a>
+            <a target="_blank" href="./Mohab Elgendy.pdf" class="downword">Download CV <span class="croll-down">↓</span></a>
+          </div>
+        </div>
+
+        <div class="bio__pic">
+          <img src="my_pic.png" alt="Mohab El Gendy" />
+        </div>
+      </div>
+    </section>
+
+    <!-- الكارد الكبيرة: Skills، جواها كارد صغيرة لكل مشروع (بتتعمل من script.js) -->
+    <section id="skills" class="skils__section">
+      <h2 class="h2__heading">Skills</h2>
+      <p class="skills__sub">My learning timeline. Click any project to see how I built it.</p>
+
+      <ol class="tl">
+        <li>
+          <a class="tl__card" href="#p-guess">
+            <span class="tl__date">20 Aug 2026</span>
+            <h3 class="tl__name">Guessing Game</h3>
+            <p class="tl__short">My first Python program, built with the random module.</p>
+          </a>
+        </li>
+        <li>
+          <a class="tl__card" href="#p-premium">
+            <span class="tl__date">25 Aug 2026</span>
+            <h3 class="tl__name">Premium Academy Subscription Calculator</h3>
+            <p class="tl__short">Calculates a swimming subscription and prints it in Arabic words.</p>
+          </a>
+        </li>
+        <li>
+          <a class="tl__card" href="#p-rps">
+            <span class="tl__date">15 Sep 2026</span>
+            <h3 class="tl__name">Rock Paper Scissors</h3>
+            <p class="tl__short">Terminal game against the computer, later upgraded to a GUI with sounds.</p>
+          </a>
+        </li>
+        <li>
+          <a class="tl__card" href="#p-xo">
+            <span class="tl__date">13 Oct 2026</span>
+            <h3 class="tl__name">XO Game</h3>
+            <p class="tl__short">A two-player XO game with sound effects.</p>
+          </a>
+        </li>
+        <li>
+          <a class="tl__card" href="#p-beads">
+            <span class="tl__date">15 Oct 2026</span>
+            <h3 class="tl__name">Smart Prayer Beads</h3>
+            <p class="tl__short">A digital tasbeeh that plays a dhikr audio when you press the button.</p>
+          </a>
+        </li>
+        <li>
+          <a class="tl__card" href="#p-calc">
+            <span class="tl__date">16 Oct 2026</span>
+            <h3 class="tl__name">GUI Calculator</h3>
+            <p class="tl__short">A calculator with a graphical interface.</p>
+          </a>
+        </li>
+        <li>
+          <a class="tl__card" href="#p-translator">
+            <span class="tl__date">16 Oct 2026</span>
+            <h3 class="tl__name">Language Translator</h3>
+            <p class="tl__short">Translates between 5 languages using an API.</p>
+          </a>
+        </li>
+        <li>
+          <a class="tl__card" href="#p-pool">
+            <span class="tl__date">25 Oct 2026</span>
+            <h3 class="tl__name">Swimming Kids Page</h3>
+            <p class="tl__short">My first web page styled with CSS.</p>
+          </a>
+        </li>
+        <li>
+          <a class="tl__card" href="#p-portfolio">
+            <span class="tl__date">2 Nov 2026</span>
+            <h3 class="tl__name">Portfolio Website</h3>
+            <p class="tl__short">My first professional, organized website.</p>
+          </a>
+        </li>
+        <li>
+          <a class="tl__card" href="#p-prayer">
+            <span class="tl__date">5 Nov 2026</span>
+            <h3 class="tl__name">Prayer Times Website</h3>
+            <p class="tl__short">Shows prayer times with a countdown to the next prayer.</p>
+          </a>
+        </li>
+      </ol>
+
+      <!-- ===== مشروع: Guessing Game ===== -->
+      <article class="detail" id="p-guess">
+        <a class="detail__back" href="#skills">← Back</a>
+        <h3 class="detail__title">Guessing Game</h3>
+        <p class="detail__date">Built on 20 Aug 2026 · Python, random</p>
+        <div class="detail__grid">
+          <figure class="detail__fig">
+           <img src="./img/guessing-game.png" alt="Guessing Game" />
+            
+          </figure>
+          <div class="detail__docs">
+            <h4>About the project</h4>
+            <p>A console game where the computer picks a secret number and I try to guess it. It was the first time I used a library and a loop together.</p>
+            <h4>How I built it</h4>
+            <ol><li>Imported the random module and printed a welcome message.</li><li>Used random.randint to pick the secret number.</li><li>Wrapped the guess in a while loop with if / elif / else to say higher, lower or correct.</li></ol>
+          </div>
+        </div>
+      </article>
+
+      <!-- ===== مشروع: Premium Academy Subscription Calculator ===== -->
+      <article class="detail" id="p-premium">
+        <a class="detail__back" href="#skills">← Back</a>
+        <h3 class="detail__title">Premium Academy Subscription Calculator</h3>
+        <p class="detail__date">Built on 25 Aug 2026 · Python, functions, dictionaries</p>
+        <div class="detail__grid">
+          <figure class="detail__fig">
+           <img src="./img/premium-academy.png" alt="Premium Academy Subscription Calculator" /> 
+
+          </figure>
+          <div class="detail__docs">
+            <h4>About the project</h4>
+            <p>A program for my swimming academy. It asks for the number of swimmers, calculates the subscription, and writes the total in Arabic words (Egyptian style) instead of digits.</p>
+            <h4>How I built it</h4>
+            <ol><li>Printed a welcome message to Premium Academy and read the swimmers count with input().</li><li>Multiplied by the price per swimmer, with conditions for any discounts.</li><li>Wrote a function that converts the number to Arabic words using lists and dictionaries.</li></ol>
+          </div>
+        </div>
+      </article>
+
+      <!-- ===== مشروع: Rock Paper Scissors ===== -->
+      <article class="detail" id="p-rps">
+        <a class="detail__back" href="#skills">← Back</a>
+        <h3 class="detail__title">Rock Paper Scissors</h3>
+        <p class="detail__date">Built on 15 Sep 2026 · Python, random, GUI, sound</p>
+        <div class="detail__grid">
+          <figure class="detail__fig">
+           <img src="./img/rock-paper-scissors.png" alt="Rock Paper Scissors" /> 
+           
+          </figure>
+          <div class="detail__docs">
+            <h4>About the project</h4>
+            <p>I choose rock, paper or scissors and the computer picks randomly, then we see who wins. Later I rebuilt it as a full GUI game with more options and a different sound for win, lose and draw.</p>
+            <h4>How I built it</h4>
+            <ol><li>Used random.choice to let the computer pick.</li><li>Wrote the winning rules with if / elif / else.</li><li>Rebuilt it as a GUI and added a sound library for every result.</li></ol>
+          </div>
+        </div>
+      </article>
+
+      <!-- ===== مشروع: XO Game ===== -->
+      <article class="detail" id="p-xo">
+        <a class="detail__back" href="#skills">← Back</a>
+        <h3 class="detail__title">XO Game</h3>
+        <p class="detail__date">Built on 13 Oct 2026 · Python, GUI, sound</p>
+        <div class="detail__grid">
+          <figure class="detail__fig">
+           <img src="./img/xo-game.png" alt="XO Game" /> 
+            
+          </figure>
+          <div class="detail__docs">
+            <h4>About the project</h4>
+            <p>A GUI Tic-Tac-Toe game. Every move, win, loss and draw has its own sound.</p>
+            <h4>How I built it</h4>
+            <ol><li>Built the 3x3 board with buttons in a grid.</li><li>Checked all winning lines after every move to detect a win or a draw.</li><li>Added a sound library and played a different sound for each event.</li></ol>
+          </div>
+        </div>
+      </article>
+
+      <!-- ===== مشروع: Smart Prayer Beads ===== -->
+      <article class="detail" id="p-beads">
+        <a class="detail__back" href="#skills">← Back</a>
+        <h3 class="detail__title">Smart Prayer Beads</h3>
+        <p class="detail__date">Built on 15 Oct 2026 · Python, GUI, audio library</p>
+        <div class="detail__grid">
+          <figure class="detail__fig">
+          <img src="./img/Smart__Prayer-Beads.png" alt="Smart Prayer Beads" />
+                  
+          
+          </figure>
+          <div class="detail__docs">
+            <h4>About the project</h4>
+            <p>My first project after learning GUI. Each press counts and plays a dhikr sound. The audio comes from a Python library, so no external mp3 file is needed.</p>
+            <h4>How I built it</h4>
+            <ol><li>Built the window, the counter label and the button.</li><li>On every click, increased the counter and updated the label.</li><li>Added an audio feature that plays the dhikr on click.</li></ol>
+          </div>
+        </div>
+      </article>
+
+      <!-- ===== مشروع: GUI Calculator ===== -->
+      <article class="detail" id="p-calc">
+        <a class="detail__back" href="#skills">← Back</a>
+        <h3 class="detail__title">GUI Calculator</h3>
+        <p class="detail__date">Built on 16 Oct 2026 · Python, GUI</p>
+        <div class="detail__grid">
+          <figure class="detail__fig">
+            <img src="./img/calculator.png" alt="GUI Calculator" />
+
+          </figure>
+          <div class="detail__docs">
+            <h4>About the project</h4>
+            <p>A calculator app with buttons for digits and operations, built to practice GUI tools.</p>
+            <h4>How I built it</h4>
+            <ol><li>Created the display and a grid of buttons.</li><li>Connected each button to a function that builds the expression.</li><li>Evaluated the result and handled errors such as division by zero.</li></ol>
+          </div>
+        </div>
+      </article>
+
+      <!-- ===== مشروع: Language Translator ===== -->
+      <article class="detail" id="p-translator">
+        <a class="detail__back" href="#skills">← Back</a>
+        <h3 class="detail__title">Language Translator</h3>
+        <p class="detail__date">Built on 16 Oct 2026 · Python, GUI, API</p>
+        <div class="detail__grid">
+          <figure class="detail__fig">
+          <img src="./img/translator.png" alt="Language Translator" /> 
+          </figure>
+          <div class="detail__docs">
+            <h4>About the project</h4>
+            <p>A GUI app where I type text, choose the source and target language, and get the translation from an online API.</p>
+            <h4>How I built it</h4>
+            <ol><li>Built the GUI with an input box, two language menus and a button.</li><li>Sent the text to the translation API with the chosen languages.</li><li>Showed the returned translation in the result box.</li></ol>
+          </div>
+        </div>
+      </article>
+
+      <!-- ===== مشروع: Swimming Kids Page ===== -->
+      <article class="detail" id="p-pool">
+        <a class="detail__back" href="#skills">← Back</a>
+        <h3 class="detail__title">Swimming Kids Page</h3>
+        <p class="detail__date">Built on 25 Oct 2026 · HTML, CSS</p>
+        <div class="detail__grid">
+          <figure class="detail__fig">
+          <img src="./img/premium-academy.png" alt="Swimming Kids Page" />
+
+          </figure>
+          <div class="detail__docs">
+            <h4>About the project</h4>
+            <p>A page with a photo of kids swimming in the pool. It was my first time using a CSS file to style an HTML page.</p>
+            <h4>How I built it</h4>
+            <ol><li>Wrote the HTML structure: heading, image and text.</li><li>Linked a style.css file.</li><li>Styled colors, fonts, spacing and layout.</li></ol>
+          </div>
+        </div>
+      </article>
+
+      <!-- ===== مشروع: Portfolio Website ===== -->
+      <article class="detail" id="p-portfolio">
+        <a class="detail__back" href="#skills">← Back</a>
+        <h3 class="detail__title">Portfolio Website</h3>
+        <p class="detail__date">Built on 2 Nov 2026 · HTML, CSS</p>
+        <div class="detail__grid">
+          <figure class="detail__fig">
+           <img src="./img/portfolio.png" alt="Portfolio Website" /> 
+           
+          </figure>
+          <div class="detail__docs">
+            <h4>About the project</h4>
+            <p>The first page I built in a clean, organized way: header, bio, skills, and a contact form, with a responsive layout.</p>
+            <h4>How I built it</h4>
+            <ol><li>Planned sections and used semantic HTML with BEM class names.</li><li>Built the layout with CSS Grid and Flexbox, plus media queries for mobile.</li><li>Added the animated background and the light / dark theme switch.</li></ol>
+          </div>
+        </div>
+      </article>
+
+      <!-- ===== مشروع: Prayer Times Website ===== -->
+      <article class="detail" id="p-prayer">
+        <a class="detail__back" href="#skills">← Back</a>
+        <h3 class="detail__title">Prayer Times Website</h3>
+        <p class="detail__date">Built on 5 Nov 2026 · HTML, CSS, JavaScript, GitHub Pages</p>
+        <div class="detail__grid">
+          <figure class="detail__fig">
+        <img src="./img/prayer.png" alt="Prayer Times Website" /> 
+        <img src="./img/prayer2.png" alt="Prayer Times Website" /> 
+           
+          </figure>
+          <div class="detail__docs">
+            <h4>About the project</h4>
+            <p>Shows the current prayer, the next prayer, and a live countdown. It is published on GitHub Pages.</p>
+            <h4>How I built it</h4>
+            <ol><li>Fetched the day's prayer times for the user's city.</li><li>Used JavaScript timers to find the current and next prayer.</li><li>Updated the countdown every second and styled the page with CSS.</li></ol>
+          </div>
+        </div>
+      </article>
+
+    </section>
+
+    <section class="main">
+      <h2 class="h2__of__vidoe">
+        The first website I’ve built, leveraging all my research and technical skills, along with various AI tools.
+      </h2>
+      <video class="video" controls poster="Screenshot from 2026-11-12 13-49-00.png">
+        <source src="Screencast from 20 أكت, 2026 EEST 09:26:49 ص (copy).mp4" type="video/webm" />
+      </video>
+    </section>
+
+    <section id="contact" class="contact section">
+      <div>
+        <p class="contact__description">Want to work together or just say hi? Send me a message or find me on social media.</p>
+        <a href="mailto:mohabsobhy4361@gmail.com" class="contact__email">mohabsobhy4361@gmail.com</a>
+
+        <div class="contact__socials" id="say_hi">
+          <a href="https://web.facebook.com/mohab.sbhy.5/?locale=ar_AR" target="_blank" class="contact__social"><img src="./images/brand/facebook.svg" alt="icon of facebook" /></a>
+          <a href="https://github.com/mohabsobhy4361-netizen" target="_blank" class="contact__social"><img src="./images/brand/github.svg" alt="icon of github" /></a>
+          <a href="https://www.instagram.com/mohab_el_gendy_/?hl=ar" target="_blank" class="contact__social"><img src="./images/brand/instagram.svg" alt="icon of instagram" /></a>
+        </div>
+      </div>
+
+      <div class="contact__foromcontact">
+        <h2 class="h2--heading">Let's work <br />together</h2>
+        <form action="results.html">
+          <div class="contact__inputs">
+            <input class="contact__input" type="text" placeholder="your name" name="description_name" required />
+            <input class="contact__input" type="tel" placeholder="your phone" name="description_phone" required />
+          </div>
+          <textarea class="contact__input contact__textarea" name="description_textarea" id="description" placeholder="your message"></textarea>
+          <input class="contact__buttom" name="buttom" type="submit" value="send message" />
+        </form>
+      </div>
+    </section>
+
+    <footer class="footer">mohabsobhy &copy; 2026</footer>
+
+  </body>
+</html>

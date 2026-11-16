@@ -1,0 +1,803 @@
+:root {
+  /* Layout */
+  --container-width: 119rem;
+  --gutter: 2rem;
+
+  /* Colors */
+  --color-black: #000;
+  --color-white: #fff;
+  --color-blue: #2374e1;
+  --color-light-blue: #1d9bf0;
+  --color-dark-blue: #0a66c2;
+  --color-darker-blue: #143ce8;
+  --color-red: #ff0000;
+  --color-green: #03a696;
+  --color-grey: #f6f6f6;
+  --color-dark-green: #42959b;
+  --color-background: var(--color-white);
+  --color-text: var(--color-black);
+  --color-box-img: var(--color-black);
+  --color-link-bg: var(--color-black);
+  --color-input-border: var(--color-black);
+
+  /* Fonts */
+ 
+  font-family: "Raleway", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: weight;
+  font-style: normal;
+
+ --font-family-raleway: "Raleway", sans-serif;
+  --font-family-poppins: "Poppins", sans-serif;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semi-bold: 600;
+  --font-weight-bold: 700;
+
+  /* Font sizes */
+  --font-size-70: 7rem;
+  --font-size-65: 6.5rem;
+  --font-size-40: 4rem;
+  --font-size-38: 3.8rem;
+  --font-size-24: 2.4rem;
+  --font-size-22: 2.2rem;
+  --font-size-20: 2rem;
+  --font-size-18: 1.8rem;
+  --font-size-15: 1.5rem;
+
+  /* Motion */
+  --transition-timing: 0.3s;
+
+  /* Animated background (جديد) */
+  --bg-tint-1: #f3f7ff; /* أزرق فاتح جدا */
+  --bg-tint-2: #faf5ff; /* بنفسجي فاتح جدا */
+  --bg-tint-3: #f1fcf8; /* أخضر مينت فاتح جدا */
+  --blob-blue: #047bf9;
+  --blob-violet: #c4a7ff;
+  --blob-pink: #ffc2e2;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Poppins", Arial, sans-serif;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* الحاوية: بتحدد أقصى عرض للمحتوى وبتوسطه */
+.container {
+  display: grid;
+  row-gap: 11rem;
+  margin: 0 auto;
+  max-width: var(--container-width);
+  padding-inline: var(--gutter);
+}
+
+
+body:has(.navigation__Home:target) .navigation__Home ,
+body:has(#about:target) .navigation__About , 
+body:has(#skills:target) .navigation__Skills,
+body:has(#project:target) .navigation__Project,
+body:has(#say_hi:target) .navigation__massage{
+  color: #2374e1;
+}
+
+/* ============================================
+   الخلفية المتحركة (جديد)
+   طبقة ثابتة ورا كل حاجة، ومبتستقبلش كليك
+   ============================================ */
+.bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+  animation: bg-tint 1s ease-in-out infinite;
+}
+
+/* لون الأساس نفسه بيتغير ببطء */
+@keyframes bg-tint {
+  0%,
+  100% {
+    background-color: var(--bg-tint-1);
+  }
+  33% {
+    background-color: var(--bg-tint-2);
+  }
+  66% {
+    background-color: var(--bg-tint-3);
+  }
+}
+
+/* الكور الملونة الضبابية */
+.bg__blob {
+  position: absolute;
+  width: 45vmax;
+  height: 45vmax;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.55;
+  will-change: transform;
+}
+
+.bg__blob--1 {
+  top: -15%;
+  left: -10%;
+  background: var(--blob-blue);
+  animation: drift-1 1s linear infinite;
+}
+
+.bg__blob--2 {
+  top: 20%;
+  right: -15%;
+  background: var(--blob-violet);
+  animation: drift-2 2s linear infinite;
+}
+
+.bg__blob--3 {
+  bottom: -20%;
+  left: 25%;
+  background: var(--blob-pink);
+  animation: drift-3 -1 linear infinite;
+}
+
+/* 0% و 100% نفس القيمة = المسار بيقفل على نفسه ومفيش قفزة */
+@keyframes drift-1 {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    transform: translate(18vw, 8vh) scale(2.15);
+  }
+  50% {
+    transform: translate(24vw, 22vh) scale(2.25);
+  }
+  75% {
+    transform: translate(6vw, 14vh) scale(2.1);
+  }
+}
+
+@keyframes drift-2 {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(2.1);
+  }
+  25% {
+    transform: translate(-14vw, 12vh) scale(2.95);
+  }
+  50% {
+    transform: translate(-24vw, 4vh) scale(2.9);
+  }
+  75% {
+    transform: translate(-10vw, -8vh) scale(2.05);
+  }
+}
+
+@keyframes drift-3 {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(3);
+  }
+  25% {
+    transform: translate(-10vw, -10vh) scale(2.15);
+  }
+  50% {
+    transform: translate(8vw, -20vh) scale(2.25);
+  }
+  75% {
+    transform: translate(16vw, -6vh) scale(2.1);
+  }
+}
+
+/* احترام الناس اللي مفعلة "تقليل الحركة" في جهازها */
+@media (prefers-reduced-motion: reduce) {
+  .bg,
+  .bg__blob {
+    animation: none;
+  }
+}
+
+/* الهيدر: الخط بعرض الشاشة كلها */
+.header {
+  top: 0;
+  position: sticky;
+  z-index: 100;
+  /* اتغير: شفاف شوية + blur عشان الخلفية تبان من تحته (شكل زجاجي) */
+  background-color: rgba(255, 255, 255, 0.72);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid #ddd;
+  padding: 20px auto;
+
+}
+
+/* nav شمال و toggle يمين */
+.header__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;   /* لو المحتوى مش سايع، ينزل سطر جديد بدل ما يطلع برا */
+  gap: 10px;
+  padding: 20px;
+}
+
+/* اللينكات جنب بعض */
+
+.navigation__list {
+  display: flex;
+  gap: 20px;
+  padding-left:0.5rem;
+}
+
+.navigation__link {
+  text-decoration: none;
+  color: inherit;
+  font-size: 1.1rem;
+}
+
+.navigation__link:hover {
+  color: blue;
+  text-decoration: underline;
+}
+
+/* Toggle */
+.toggle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.1rem;
+}
+
+.toggle__checkbox {
+  display: none;
+}
+
+.toggle__label {
+  display: block;
+  position: relative;
+  width: 45px;
+  height: 22px;
+  padding: 3px 4px;
+  border-radius: 15px;
+  background-color: black;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.toggle__label::after {
+  content: "";
+  display: block;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: rgb(242, 238, 238);
+  transition: 0.5s;
+}
+
+.toggle__checkbox:checked + .toggle__label {
+  background-color: #ddd;
+}
+
+
+
+.toggle__checkbox:checked + .toggle__label::after {
+  transform: translateX(21px);
+  background-color: green;
+}
+
+/* Bio */
+
+/* Bio */
+.bio {
+  padding-top: 3rem;
+  padding-left: 3rem;
+}
+ 
+/* عمودين: النص شمال والصورة يمين */
+.bio__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 1.7rem;
+  row-gap: 3rem;
+  align-items: center;
+}
+ 
+.bio__heading {
+  font-family: "Raleway", "Poppins", Arial, sans-serif;
+  font-weight: 800;
+  font-size: 4.5rem;
+  line-height: 1.1;
+  margin: 0 0 2rem;
+}
+ 
+.bio__objective {
+  font-size: 1.9rem;
+  line-height: 1.6;
+  margin: 0 0 4rem;
+}
+ 
+.bio__intst {
+  color: blueviolet;
+}
+ 
+.bio__facebook {
+  color: #0a66c2;
+}
+ 
+/* Say Hi و Download CV جنب بعض */
+.bio__actions {
+  display: flex;
+  gap: 12px;
+}
+ 
+.say_hi,
+.downword {
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  transition: background-color 1s ease, color 1s ease;
+}
+ 
+.say_hi {
+  background-color: #d9d9d9;
+}
+ 
+.downword {
+  background-color: #c9cacb;
+}
+ 
+.say_hi:hover,
+.downword:hover {
+  background-color: #0a66c2;
+  color: #fff;
+}
+ 
+/* السهم اللي يتحرك */
+@keyframes arrow-bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-0.4rem);
+  }
+}
+ 
+.croll-down {
+  display: inline-block;
+  animation: arrow-bounce 1s ease-in-out infinite;
+  
+}
+ 
+.bio__actions a {
+  color: inherit;
+}
+ 
+/* الصورة + البوكس الأسود اللي وراها */
+.bio__pic {
+  position: relative;
+  isolation: isolate;
+  justify-self: end;
+  width: 100%;
+  max-width: 32rem;
+  margin-right: 40px;
+}
+ 
+.bio__pic::before {
+  content: "";
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 88%;
+  background-color: var(--color-box-img);
+  border-radius: 1.8rem;
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.25);
+  z-index: -1;
+}
+ 
+.bio__pic img {
+  display: block;
+  width: 100%;
+  height: auto;
+  clip-path: inset(0 round 0 0 1.8rem 1.8rem);
+}
+ 
+/* الموبايل: عمود واحد */
+@media (max-width: 768px) {
+  .bio {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+ 
+  .bio__inner {
+    grid-template-columns: 1fr;
+  }
+ 
+  .bio__heading {
+    font-size: 2.5rem;
+  }
+ 
+  .bio__objective {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+  }
+ 
+  .bio__pic {
+    justify-self: center;
+    max-width: 24rem;
+    margin-right: 0;
+  }
+}
+ 
+/* Skills */
+.skils__section {
+  background-color: #d1d3d39c;
+  border-radius: 20px;
+  width: 90%; /* ياخد 90% من الشاشة */
+  max-width: var(--container-width); /* ومايكبرش عن الحد ده */
+  margin: 250px auto; /* auto على الجانبين = متسنتر */
+  padding-bottom: 1rem;
+  text-align: center;
+}
+ 
+.h2__heading {
+  font-size: var(--font-size-65);
+  font-weight: var(--font-weight-bold);
+  padding-inline: 5rem;
+}
+ 
+.skils__list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5rem;
+  margin-inline: 5rem;
+  padding: 0;
+  list-style: none;
+}
+ 
+.skils__titel {
+  font-size: var(--font-size-38);
+  font-weight: var(--font-weight-semi-bold);
+  margin: 0 0 0.5rem;
+}
+ 
+.skils__item {
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 255, 0.269),
+    rgba(128, 0, 128, 0.406)
+  );
+  border-radius: 15px;
+  padding: 10px 15px;
+  margin-bottom: 2rem;
+}
+ 
+/* تابلت: عمودين (لازم قبل الموبايل) */
+@media (max-width: 900px) {
+  .skils__list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-inline: 2rem;
+  }
+ 
+  .h2__heading {
+    font-size: 3rem;
+    padding-inline: 2rem;
+  }
+ 
+  .skils__titel {
+    font-size: 1.8rem;
+  }
+}
+ 
+/* موبايل: عمود واحد */
+@media (max-width: 600px) {
+  .skils__list {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-inline: 1rem;
+  }
+ 
+  .h2__heading {
+    font-size: 2rem;
+    padding-inline: 1rem;
+  }
+ 
+  .skils__titel {
+    font-size: 1.5rem;
+  }
+ 
+  .skils__item {
+    margin-bottom: 0;
+  }
+}
+ 
+/* Video */
+.main {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-content: center;
+  align-content: center;
+padding: 8rem;
+
+}
+ 
+.h2__of__vidoe {
+  text-align: center;
+  font-size: 25px;
+  font-family: var(--font-family-raleway);
+}
+ 
+.video {
+ max-width: 100%;
+  height: auto;
+  justify-self: center;
+}
+ 
+@media (max-width: 600px) {
+  .main {
+    margin: 30px 15px;
+  }
+ 
+  .h2__of__vidoe {
+    font-size: 18px;
+  }
+}
+ 
+
+/* section of project */
+.project-main {
+  /* display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+ 
+  margin-top:rem ;
+  max-width: 1100px;     
+  padding: 0 20px;        */
+   display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 1.7rem;
+  row-gap: 3rem;
+  align-items: center;
+}
+.h2-heading {
+  grid-column: 1 / -1;
+  font-family: var(--font-family-raleway);
+  font-size: 38px;
+  text-transform: uppercase;
+}
+.h2-heading{
+  justify-self: center;
+}
+.h3-heading {
+  grid-column: 1 / -1;
+  font-family: var(--font-family-raleway);
+  font-size: 38px;
+}
+.project-img {            /* غيّر الاسم لو كلاس الـ HTML عندك imp-project */
+  width: 100%;            /* تملا العمود بتاعها بس */
+  height: auto;
+  justify-self: center;
+  margin-bottom: 10rem;
+}
+.project-data{
+  margin-bottom: 10rem;
+  
+}
+
+/* على الموبايل: عمود واحد */
+@media (max-width: 768px) {
+  .project-main {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* project2 */
+.project-main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+
+  margin-top:rem ;
+  max-width: 1100px;      /* أقصى عرض للقسم، فمهما كبرت الشاشة ميكبرش أكتر */
+  margin-inline: auto;    /* يتوسّط في نص الصفحة */
+  padding: 0 20px;        /* مسافة من الأطراف في الشاشات الصغيرة */
+}
+
+.h2-heading2 {
+  grid-column: 1 / -1;
+  font-family: var(--font-family-raleway);
+  font-size: 38px;
+  text-transform: uppercase;
+}
+.h2-heading2{
+  justify-self: center;
+}
+.h3-heading2 {
+  grid-column: 1 / -1;
+  font-family: var(--font-family-raleway);
+  font-size: 38px;
+}
+.project-img2 { 
+  order: 2;           /* غيّر الاسم لو كلاس الـ HTML عندك imp-project */
+  width: 100%;            /* تملا العمود بتاعها بس */
+  height: auto;
+  justify-self: start;
+  margin-bottom: 10rem;
+  
+}
+.project-data2{
+  margin-bottom: 10rem;
+  
+  
+}
+
+/* على الموبايل: عمود واحد */
+@media (max-width: 768px) {
+  .project-main {
+    grid-template-columns: 1fr;
+  }
+}
+/* clients part */
+
+.clients_section {
+  display: grid;
+ grid-template-columns: 1fr;
+  justify-content: center;
+  align-content: center;
+padding: 8rem;
+background-color: #c9cacb71;
+border-radius: 5px;
+margin-bottom: 10rem;
+margin: 3rem;
+
+  
+
+}
+.client_opinion{
+  grid-column: 1/-1;
+  font-size: 25px;
+  line-height: 1.7;
+}
+.cliens_wrapper{
+  display: flex;
+  overflow: auto;
+  scroll-snap-type: x mandatory;
+}
+.client_opinion{
+  flex-basis: 100%;
+  flex-shrink: 0;
+  scroll-snap-align: start;
+
+}
+
+/* contact */
+
+.contact{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  column-gap: 15rem;
+  align-items: center;
+  padding: 10rem 3rem;
+}
+.contact__description{
+  font-family: var(--font-family-raleway);
+  line-height: 1.7;
+  font-size: var(--font-size-20);
+
+}
+.contact__email{
+  display: inline-block;
+  font-weight: bold;
+  margin: 2.5rem 0 1rem 0 ;
+  transition: var(--transition-timing);
+}
+.contact__email:hover{
+transform: scale(1.2);
+color: #000;
+}
+
+.contact__socials{
+  display: flex;
+  gap: 1rem;
+
+}
+.contact__social{
+  display: inline-block;
+  transition: var(--transition-timing);
+ 
+
+}
+
+.contact__social:hover{
+transform: scale(1.8);
+color: #ebeeef;
+}
+
+.h2--heading{
+  font-size: var(--font-size-40);
+  font-family: var(--font-family-raleway);
+  line-height: 1.5;
+
+}
+
+.contact__inputs{
+  display: flex;
+gap: 3rem;
+}
+
+.contact__input{
+  background: transparent;
+  border: 0;
+  outline: 0;
+  border-bottom: 0.1rem solid black;
+  border-radius: 0.1rem ;
+  flex: 1;
+  font-size: var(--font-size-18);
+}
+.contact__textarea{
+    padding: 0;
+
+  width: 100%;
+  margin-top: 4rem;
+  font-size: var(--font-size-18);
+}
+.contact__buttom{
+  border: 0;
+  background-color:var(--color-link-bg);
+  color: #c9cacb;
+  padding: 1.7rem 1.8rem ;
+  font-weight: var(--font-size-24);
+  margin-top: 3.4rem;
+  font-size: var(--font-size-20);
+  transition: var(--transition-timing);
+  border-radius: 2rem;
+  
+}
+
+.contact__buttom:hover{
+ background-color: rgb(119, 119, 250) ;
+ transform: scale(1.2);
+ 
+
+}
+
+
+/* scroll-behavior */
+
+
+html{
+  scroll-behavior: smooth;
+  scroll-padding-top: 11rem;
+}
+
+
+/* footer */
+.footer{
+  font-size: var(--font-size-15);
+  padding: 2rem;
+  border-top: 0.1rem solid black;
+}
+/* end footer */
+
+
+/* theem */
+
+html:has(.toggle__checkbox:checked) {
+  --color-background: var(--color-black);
+  --color-text: var(--color-white);
+  
+  --color-link-bg: var(--color-green);
+  --color-grey: #080808;
+  --color-input-border: var(--color-white);
+}
